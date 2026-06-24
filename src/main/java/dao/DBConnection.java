@@ -20,8 +20,6 @@ public class DBConnection {
                 "AVNS_VrQ-6vvFsu5_OommVEd"
             );
 
-            System.out.println("✅ Cloud Database Connected Successfully!");
-
         } catch (Exception e) {
             System.out.println("❌ Cloud Connection Failed!");
             e.printStackTrace();
