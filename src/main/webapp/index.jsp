@@ -921,7 +921,7 @@
 
 <!-- ================= TOP CONTACT BAR ================= -->
 <div class="topbar">
-  📞 Order on call: <a href="tel:+918106317242">+91 8106317242</a> &nbsp;|&nbsp; Homemade &amp; fresh, delivered with care
+  📞 Order on call: <a href="tel:+919705107242">+91 9705107242</a> &nbsp;|&nbsp; Homemade &amp; fresh, delivered with care
 </div>
 
 
@@ -1397,11 +1397,11 @@
 <footer>
   <div class="foot-brand">🫙 SAMPURNA HOME FOODS </div>
   <div>Homemade pickles, sweets &amp; mixtures &middot; made fresh, shipped with care</div>
-  <div style="margin-top:10px;">📞 <a href="tel:+918106317242" style="color:var(--mustard-light); font-weight:700;">+91 8106317242</a></div>
+  <div style="margin-top:10px;">📞 <a href="tel:+919705107242" style="color:var(--mustard-light); font-weight:700;">+91 9705107242</a></div>
 </footer>
 
 <!-- Floating call button, always visible bottom-right -->
-<a href="tel:+918106317242" class="float-call" title="Call to order">📞</a>
+<a href="tel:+919705107242" class="float-call" title="Call to order">📞</a>
 
 <script>
   // ===== Image error fallback (used by every product image) =====
