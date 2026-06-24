@@ -1,13 +1,18 @@
 package controller;
 
+package controller;
+
 import java.io.IOException;
 import dao.OrderDetailsDAO;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.WebServlet;
+
+// CHANGED FROM jakarta TO javax TO MATCH TOMCAT 9
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet;
 
 @WebServlet("/CancelOrderServlet")
 public class CancelOrderServlet extends HttpServlet {
+    // Keep the rest of your internal code exactly the same!
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
