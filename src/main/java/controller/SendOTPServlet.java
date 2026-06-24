@@ -8,15 +8,18 @@ import java.sql.ResultSet;
 import java.util.Random;
 
 import dao.DBConnection;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+
+// CHANGED FROM jakarta TO javax TO MATCH TOMCAT 9
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/SendOTPServlet")
 public class SendOTPServlet extends HttpServlet {
+    // Keep the rest of your OTP generation and verification logic exactly as it is!
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
