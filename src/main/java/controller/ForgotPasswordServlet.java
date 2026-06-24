@@ -1,11 +1,10 @@
 package controller;
 
 import java.io.IOException;
-// ADD THESE SQL IMPORTS TO FIX THE FIRST 5 ERRORS:
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import util.DBConnection; 
+import dao.DBConnection; // Changed from util.DBConnection to dao.DBConnection
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
