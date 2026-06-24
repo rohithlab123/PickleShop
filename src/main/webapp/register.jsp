@@ -210,7 +210,7 @@
       <div class="error-msg"><%= request.getAttribute("error") %></div>
     <% } %>
 
-    <form action="RegisterServlet" method="post">
+    <form action="register" method="post">
       <div class="field-group">
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" placeholder="Your full name" required>
