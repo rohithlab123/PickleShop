@@ -36,4 +36,4 @@ public class RegisterServlet extends HttpServlet {
             response.getWriter().println("❌ Registration Failed");
         }
     }
-
+}
