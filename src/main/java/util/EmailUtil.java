@@ -1,13 +1,14 @@
 package util;
 
 import java.util.Properties;
-// CHANGED FROM jakarta TO javax TO MATCH TOMCAT 9
+
+// RECHECK THESE: Make sure absolutely no 'jakarta' lines remain here
 import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.mail.Authenticator; // (In case your password authentication method needs it)
+import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 
 public class EmailUtil {
