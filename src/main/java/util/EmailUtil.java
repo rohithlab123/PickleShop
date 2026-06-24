@@ -1,13 +1,17 @@
 package util;
 
 import java.util.Properties;
-import jakarta.mail.Message;
-import jakarta.mail.Session;
-import jakarta.mail.Transport;
-import jakarta.mail.internet.InternetAddress;
-import jakarta.mail.internet.MimeMessage;
+// CHANGED FROM jakarta TO javax TO MATCH TOMCAT 9
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.mail.Authenticator; // (In case your password authentication method needs it)
+import javax.mail.PasswordAuthentication;
 
 public class EmailUtil {
+    // Keep your complete sendEmail methods and setup exactly the same below this!
 
     public static void sendOTP(String toEmail, String otp) {
 
