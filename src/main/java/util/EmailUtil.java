@@ -1,8 +1,6 @@
 package util;
 
 import java.util.Properties;
-
-// RECHECK THESE: Make sure absolutely no 'jakarta' lines remain here
 import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Transport;
@@ -12,14 +10,10 @@ import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 
 public class EmailUtil {
-    // Keep your complete sendEmail methods and setup exactly the same below this!
 
     public static void sendOTP(String toEmail, String otp) {
 
-        // 🔥 CHANGE THIS
         final String fromEmail = "rohithrohith61564@gmail.com";
-
-        // 🔥 IMPORTANT: Gmail App Password (NOT normal password)
         final String password = "gfgq lgce akzq jbnq";
 
         Properties props = new Properties();
@@ -28,16 +22,17 @@ public class EmailUtil {
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
 
+        // FIXED: Switched from inline jakarta references to standard javax Authenticator
         Session session = Session.getInstance(props,
-            new jakarta.mail.Authenticator() {
-                protected jakarta.mail.PasswordAuthentication getPasswordAuthentication() {
-                    return new jakarta.mail.PasswordAuthentication(fromEmail, password);
+            new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(fromEmail, password);
                 }
             }
         );
 
         try {
-
             MimeMessage message = new MimeMessage(session);
 
             message.setFrom(new InternetAddress(fromEmail));
