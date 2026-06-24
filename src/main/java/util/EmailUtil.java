@@ -16,24 +16,27 @@ public class EmailUtil {
         final String fromEmail = "rohithrohith61564@gmail.com";
         final String password = "gfgq lgce akzq jbnq";
 
-        // Mailcap initialization override to fix the ClassCastException runtime error
+        // Mailcap initialization override to fix runtime ClassCastException conflicts
         try {
             javax.activation.MailcapCommandMap mc = (javax.activation.MailcapCommandMap) javax.activation.CommandMap.getDefaultCommandMap();
             mc.addMailcap("text/html;; x-java-content-handler=com.sun.mail.handlers.text_html");
             mc.addMailcap("text/plain;; x-java-content-handler=com.sun.mail.handlers.text_plain");
             mc.addMailcap("text/xml;; x-java-content-handler=com.sun.mail.handlers.text_xml");
-            mc.addMailcap("multipart/*;; x-java-content-handler=com.sun.mail.handlers.multipart_mixed");
+            mc.addMailcap("multipart/*;; x-java-content-handler=com.sun.mail.handlers.text_multipart_mixed");
             mc.addMailcap("message/rfc822;; x-java-content-handler=com.sun.mail.handlers.message_rfc822");
             javax.activation.CommandMap.setDefaultCommandMap(mc);
         } catch (Exception e) {
-            System.out.println("⚠️ Mailcap initialization override warning: " + e.getMessage());
+            System.out.println("⚠️ Mailcap override warning: " + e.getMessage());
         }
 
+        // Updated Properties to target SSL Port 465 to bypass Render network blocks
         Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.port", "465");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.socketFactory.port", "465");
+        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.socketFactory.fallback", "false");
 
         Session session = Session.getInstance(props,
             new Authenticator() {
