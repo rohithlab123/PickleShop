@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.sql.*;
 
 import dao.DBConnection;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
+// CHANGED FROM jakarta TO javax TO MATCH TOMCAT 9
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
 
 @WebServlet("/AdminLoginServlet")
 public class AdminLoginServlet extends HttpServlet {
+    // Keep all the rest of your code exactly the same!
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
