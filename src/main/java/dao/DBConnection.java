@@ -1,24 +1,32 @@
 package dao;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+
 public class DBConnection {
-     Connection con = null;
 
-     public Connection getconnection() {
+    Connection con = null;
 
-         try {
-             Class.forName("com.mysql.cj.jdbc.Driver");
-             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pickle_shop", "root", "root");
+    public Connection getconnection() {
 
-             System.out.println("Database Connected");
-         }
+        try {
+            // Load the MySQL JDBC Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
-         catch(Exception e) {
-                System.out.println(e);
-                System.out.println("connection fail");
-            }
+            // Updated URL with SSL trust flags and your real password string
+            con = DriverManager.getConnection(
+                "jdbc:mysql://pickelsshop-pickels.h.aivencloud.com:23064/defaultdb?useSSL=true&trustServerCertificate=true",
+                "avnadmin",
+                "AVNS_VrQ-6vvFsu5_OommVEd"
+            );
 
-         return con;
-     }
+            System.out.println("✅ Cloud Database Connected Successfully!");
 
+        } catch (Exception e) {
+            System.out.println("❌ Cloud Connection Failed!");
+            e.printStackTrace();
+        }
+
+        return con;
     }
+}
