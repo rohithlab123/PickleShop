@@ -5,12 +5,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import dao.DBConnection;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
+
+// CHANGED FROM jakarta TO javax TO MATCH TOMCAT 9
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
 
 @WebServlet("/UpdateOrderStatusServlet")
 public class UpdateOrderStatusServlet extends HttpServlet {
+    // Keep the rest of your order status modification logic exactly the same!
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
