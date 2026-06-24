@@ -11,60 +11,60 @@ import javax.mail.PasswordAuthentication;
 
 public class EmailUtil {
 
-   public static void sendOTP(String toEmail, String otp) {
+    public static void sendOTP(String toEmail, String otp) {
 
-    final String fromEmail = "rohithrohith61564@gmail.com";
-    final String password = "gfgq lgce akzq jbnq";
+        final String fromEmail = "rohithrohith61564@gmail.com";
+        final String password = "gfgq lgce akzq jbnq";
 
-    // 🛠️ ADD THIS DIRECT ACTIVATION MAP RESET RIGHT HERE
-    try {
-        javax.activation.MailcapCommandMap mc = (javax.activation.MailcapCommandMap) javax.activation.CommandMap.getDefaultCommandMap();
-        mc.addMailcap("text/html;; x-java-content-handler=com.sun.mail.handlers.text_html");
-        mc.addMailcap("text/plain;; x-java-content-handler=com.sun.mail.handlers.text_plain");
-        mc.addMailcap("text/xml;; x-java-content-handler=com.sun.mail.handlers.text_xml");
-        mc.addMailcap("multipart/*;; x-java-content-handler=com.sun.mail.handlers.multipart_mixed");
-        mc.addMailcap("message/rfc822;; x-java-content-handler=com.sun.mail.handlers.message_rfc822");
-        javax.activation.CommandMap.setDefaultCommandMap(mc);
-    } catch (Exception e) {
-        System.out.println("⚠️ Mailcap initialization override warning: " + e.getMessage());
-    }
-
-    Properties props = new Properties();
-    props.put("mail.smtp.auth", "true");
-    props.put("mail.smtp.starttls.enable", "true");
-    props.put("mail.smtp.host", "smtp.gmail.com");
-    props.put("mail.smtp.port", "587");
-
-    Session session = Session.getInstance(props,
-        new Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(fromEmail, password);
-            }
+        // Mailcap initialization override to fix the ClassCastException runtime error
+        try {
+            javax.activation.MailcapCommandMap mc = (javax.activation.MailcapCommandMap) javax.activation.CommandMap.getDefaultCommandMap();
+            mc.addMailcap("text/html;; x-java-content-handler=com.sun.mail.handlers.text_html");
+            mc.addMailcap("text/plain;; x-java-content-handler=com.sun.mail.handlers.text_plain");
+            mc.addMailcap("text/xml;; x-java-content-handler=com.sun.mail.handlers.text_xml");
+            mc.addMailcap("multipart/*;; x-java-content-handler=com.sun.mail.handlers.multipart_mixed");
+            mc.addMailcap("message/rfc822;; x-java-content-handler=com.sun.mail.handlers.message_rfc822");
+            javax.activation.CommandMap.setDefaultCommandMap(mc);
+        } catch (Exception e) {
+            System.out.println("⚠️ Mailcap initialization override warning: " + e.getMessage());
         }
-    );
 
-    try {
-        MimeMessage message = new MimeMessage(session);
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
 
-        message.setFrom(new InternetAddress(fromEmail));
-        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
-
-        message.setSubject("Ammamma's Kitchen - OTP Verification");
-
-        message.setText(
-            "Your OTP is: " + otp + "\n\n" +
-            "This OTP is valid for 5 minutes.\n\n" +
-            "Do not share it with anyone."
+        Session session = Session.getInstance(props,
+            new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(fromEmail, password);
+                }
+            }
         );
 
-        // Standard send call (You can drop the context ClassLoader trick lines if they are still there)
-        Transport.send(message);
+        try {
+            MimeMessage message = new MimeMessage(session);
 
-        System.out.println("✅ OTP EMAIL SENT SUCCESSFULLY");
+            message.setFrom(new InternetAddress(fromEmail));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
 
-    } catch (Exception e) {
-        e.printStackTrace();
-        System.out.println("❌ EMAIL SENDING FAILED: " + e.getMessage());
+            message.setSubject("Ammamma's Kitchen - OTP Verification");
+
+            message.setText(
+                "Your OTP is: " + otp + "\n\n" +
+                "This OTP is valid for 5 minutes.\n\n" +
+                "Do not share it with anyone."
+            );
+
+            Transport.send(message);
+
+            System.out.println("✅ OTP EMAIL SENT SUCCESSFULLY");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("❌ EMAIL SENDING FAILED: " + e.getMessage());
+        }
     }
 }
