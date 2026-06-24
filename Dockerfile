@@ -16,10 +16,13 @@ WORKDIR /usr/local/tomcat
 RUN rm -rf webapps/*
 COPY --from=build /app/target/ROOT.war webapps/ROOT.war
 
-# Change Tomcat's default port configuration from 8080 to match Render's dynamic port
+# 1. Change Tomcat's default HTTP port configuration from 8080 to match Render's port
 RUN sed -i 's/port="8080"/port="${port.http}"/g' conf/server.xml
 
-# Set a default fallback port property if Render doesn't pass one, though Render will override this
+# 2. DISABLE THE SHUTDOWN PORT completely (Set it to -1) so Render's checks don't hit it
+RUN sed -i 's/port="8005" shutdown="SHUTDOWN"/port="-1" shutdown="SHUTDOWN"/g' conf/server.xml
+
+# Set default fallback port property
 ENV JAVA_OPTS="-Dport.http=10000"
 
 EXPOSE 10000
