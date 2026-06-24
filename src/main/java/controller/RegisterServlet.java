@@ -2,11 +2,12 @@ package controller;
 
 import java.io.IOException;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+// Changed from jakarta to javax to match your Tomcat 9 runtime environment
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import dao.UserDAO;
 import model.User;
@@ -14,14 +15,12 @@ import model.User;
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request,
-                          HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
 
         User user = new User();
-
         user.setName(request.getParameter("name"));
         user.setEmail(request.getParameter("email"));
         user.setPassword(request.getParameter("password"));
@@ -29,11 +28,9 @@ public class RegisterServlet extends HttpServlet {
         user.setAddress(request.getParameter("address"));
 
         UserDAO dao = new UserDAO();
-
         boolean status = dao.registerUser(user);
 
         if (status) {
-            // success → go to login page
             response.sendRedirect("login.jsp");
         } else {
             response.getWriter().println("❌ Registration Failed");
