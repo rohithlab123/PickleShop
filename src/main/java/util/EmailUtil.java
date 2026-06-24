@@ -1,0 +1,59 @@
+package util;
+
+import java.util.Properties;
+import jakarta.mail.Message;
+import jakarta.mail.Session;
+import jakarta.mail.Transport;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
+
+public class EmailUtil {
+
+    public static void sendOTP(String toEmail, String otp) {
+
+        // 🔥 CHANGE THIS
+        final String fromEmail = "rohithrohith61564@gmail.com";
+
+        // 🔥 IMPORTANT: Gmail App Password (NOT normal password)
+        final String password = "gfgq lgce akzq jbnq";
+
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+
+        Session session = Session.getInstance(props,
+            new jakarta.mail.Authenticator() {
+                protected jakarta.mail.PasswordAuthentication getPasswordAuthentication() {
+                    return new jakarta.mail.PasswordAuthentication(fromEmail, password);
+                }
+            }
+        );
+
+        try {
+
+            MimeMessage message = new MimeMessage(session);
+
+            message.setFrom(new InternetAddress(fromEmail));
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(toEmail));
+
+            message.setSubject("Ammamma's Kitchen - OTP Verification");
+
+            message.setText(
+                "Your OTP is: " + otp + "\n\n" +
+                "This OTP is valid for 5 minutes.\n\n" +
+                "Do not share it with anyone."
+            );
+
+            Transport.send(message);
+
+            System.out.println("✅ OTP EMAIL SENT SUCCESSFULLY");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("❌ EMAIL SENDING FAILED: " + e.getMessage());
+        }
+    }
+}
