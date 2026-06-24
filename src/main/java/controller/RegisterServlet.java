@@ -11,12 +11,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import dao.UserDAO;
 import model.User;
 
-@WebServlet("/RegisterServlet")
+@WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)
             throws ServletException, IOException {
+
+        request.setCharacterEncoding("UTF-8");
 
         User user = new User();
 
@@ -30,10 +32,11 @@ public class RegisterServlet extends HttpServlet {
 
         boolean status = dao.registerUser(user);
 
-        if(status) {
+        if (status) {
+            // success → go to login page
             response.sendRedirect("login.jsp");
         } else {
-            response.getWriter().println("Registration Failed");
+            response.getWriter().println("❌ Registration Failed");
         }
     }
 }
