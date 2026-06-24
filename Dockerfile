@@ -13,11 +13,14 @@ RUN mvn clean package -DskipTests
 FROM tomcat:9.0-jdk17-temurin
 WORKDIR /usr/local/tomcat
 
-# Remove default Tomcat apps to avoid conflicts
 RUN rm -rf webapps/*
-
-# Copy the compiled war file directly from Stage 1 (Build stage)
 COPY --from=build /app/target/ROOT.war webapps/ROOT.war
 
-EXPOSE 8080
+# Change Tomcat's default port configuration from 8080 to match Render's dynamic port
+RUN sed -i 's/port="8080"/port="${port.http}"/g' conf/server.xml
+
+# Set a default fallback port property if Render doesn't pass one, though Render will override this
+ENV JAVA_OPTS="-Dport.http=10000"
+
+EXPOSE 10000
 CMD ["catalina.sh", "run"]
