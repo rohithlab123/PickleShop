@@ -33,7 +33,9 @@ public class RegisterServlet extends HttpServlet {
         if (status) {
             response.sendRedirect("login.jsp");
         } else {
-            response.getWriter().println("❌ Registration Failed");
+            // FIX: Set the registration error message and forward back to the register page
+    request.setAttribute("error", "❌ Registration Failed");
+    request.getRequestDispatcher("register.jsp").forward(request, response);
         }
     }
 }
