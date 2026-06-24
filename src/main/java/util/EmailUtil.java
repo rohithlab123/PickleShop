@@ -11,56 +11,60 @@ import javax.mail.PasswordAuthentication;
 
 public class EmailUtil {
 
-    public static void sendOTP(String toEmail, String otp) {
+   public static void sendOTP(String toEmail, String otp) {
 
-        final String fromEmail = "rohithrohith61564@gmail.com";
-        final String password = "gfgq lgce akzq jbnq";
+    final String fromEmail = "rohithrohith61564@gmail.com";
+    final String password = "gfgq lgce akzq jbnq";
 
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+    // 🛠️ ADD THIS DIRECT ACTIVATION MAP RESET RIGHT HERE
+    try {
+        javax.activation.MailcapCommandMap mc = (javax.activation.MailcapCommandMap) javax.activation.CommandMap.getDefaultCommandMap();
+        mc.addMailcap("text/html;; x-java-content-handler=com.sun.mail.handlers.text_html");
+        mc.addMailcap("text/plain;; x-java-content-handler=com.sun.mail.handlers.text_plain");
+        mc.addMailcap("text/xml;; x-java-content-handler=com.sun.mail.handlers.text_xml");
+        mc.addMailcap("multipart/*;; x-java-content-handler=com.sun.mail.handlers.multipart_mixed");
+        mc.addMailcap("message/rfc822;; x-java-content-handler=com.sun.mail.handlers.message_rfc822");
+        javax.activation.CommandMap.setDefaultCommandMap(mc);
+    } catch (Exception e) {
+        System.out.println("⚠️ Mailcap initialization override warning: " + e.getMessage());
+    }
 
-        // FIXED: Switched from inline jakarta references to standard javax Authenticator
-        Session session = Session.getInstance(props,
-            new Authenticator() {
-                @Override
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(fromEmail, password);
-                }
+    Properties props = new Properties();
+    props.put("mail.smtp.auth", "true");
+    props.put("mail.smtp.starttls.enable", "true");
+    props.put("mail.smtp.host", "smtp.gmail.com");
+    props.put("mail.smtp.port", "587");
+
+    Session session = Session.getInstance(props,
+        new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(fromEmail, password);
             }
+        }
+    );
+
+    try {
+        MimeMessage message = new MimeMessage(session);
+
+        message.setFrom(new InternetAddress(fromEmail));
+        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
+
+        message.setSubject("Ammamma's Kitchen - OTP Verification");
+
+        message.setText(
+            "Your OTP is: " + otp + "\n\n" +
+            "This OTP is valid for 5 minutes.\n\n" +
+            "Do not share it with anyone."
         );
 
-        try {
-            MimeMessage message = new MimeMessage(session);
+        // Standard send call (You can drop the context ClassLoader trick lines if they are still there)
+        Transport.send(message);
 
-            message.setFrom(new InternetAddress(fromEmail));
-            message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(toEmail));
+        System.out.println("✅ OTP EMAIL SENT SUCCESSFULLY");
 
-            message.setSubject("Ammamma's Kitchen - OTP Verification");
-
-            message.setText(
-                "Your OTP is: " + otp + "\n\n" +
-                "This OTP is valid for 5 minutes.\n\n" +
-                "Do not share it with anyone."
-            );
-
-         // 👇 ADD THESE TWO LINES RIGHT HERE TO FIX THE CLASSCAST ERROR 👇
-            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-            Thread.currentThread().setContextClassLoader(javax.mail.Message.class.getClassLoader());
-
-            Transport.send(message);
-
-            // 👇 ADD THIS LINE RIGHT AFTER TO RESTORE THE ENVIRONMENT 👇
-            Thread.currentThread().setContextClassLoader(classLoader);
-
-            System.out.println("✅ OTP EMAIL SENT SUCCESSFULLY");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("❌ EMAIL SENDING FAILED: " + e.getMessage());
-        }
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println("❌ EMAIL SENDING FAILED: " + e.getMessage());
     }
 }
