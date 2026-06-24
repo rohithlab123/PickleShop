@@ -47,7 +47,14 @@ public class EmailUtil {
                 "Do not share it with anyone."
             );
 
+         // 👇 ADD THESE TWO LINES RIGHT HERE TO FIX THE CLASSCAST ERROR 👇
+            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+            Thread.currentThread().setContextClassLoader(javax.mail.Message.class.getClassLoader());
+
             Transport.send(message);
+
+            // 👇 ADD THIS LINE RIGHT AFTER TO RESTORE THE ENVIRONMENT 👇
+            Thread.currentThread().setContextClassLoader(classLoader);
 
             System.out.println("✅ OTP EMAIL SENT SUCCESSFULLY");
 
