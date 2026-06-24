@@ -39,7 +39,9 @@ public class LoginServlet extends HttpServlet {
 
         } else {
 
-            response.getWriter().println("Invalid Email or Password");
+            // FIX: Set the error text and forward back to login.jsp without breaking the UI
+            request.setAttribute("error", "Invalid Email or Password");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 }
