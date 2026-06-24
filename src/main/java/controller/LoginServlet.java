@@ -1,7 +1,5 @@
 package controller;
 
-package controller;
-
 import java.io.IOException;
 import dao.UserDAO;
 import model.User;
