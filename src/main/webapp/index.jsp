@@ -929,7 +929,7 @@
 <header>
   <div class="header-inner">
     <a href="index.jsp" class="logo">
-      <img src="images/logo.png" alt="Ammamma's Kitchen Logo" class="logo-img" />
+      <img src="images/logo.webp" alt="Ammamma's Kitchen Logo" class="logo-img" />
       SAMPURNA HOME FOODS
     </a>
 
@@ -980,9 +980,9 @@
 </header>
 <!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="hero-slide active" style="background-image: url('images/banner1.png')"></div>
-  <div class="hero-slide" style="background-image: url('images/banner2.png')"></div>
-  <div class="hero-slide" style="background-image: url('images/banner3.png')"></div>
+  <div class="hero-slide active" style="background-image: url('images/banner1.webp')"></div>
+  <div class="hero-slide" style="background-image: url('images/banner2.webp')"></div>
+  <div class="hero-slide" style="background-image: url('images/banner3.webp')"></div>
   <div class="hero-overlay"></div>
 
   <span class="hero-badge">Homemade • No Preservatives</span>
@@ -1004,7 +1004,7 @@
   <div class="product-row pickles">
     <div class="product-card" data-id="1">
       <div class="card-cap" onclick="openModal(1)">
-        <img src="images/mutton-pickle.png" alt="Mutton Pickle" onerror="handleImgError(this)" />
+        <img src="images/mutton-pickle.webp" alt="Mutton Pickle" onerror="handleImgError(this)" />
         <div class="cap-fallback">🍖</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1016,7 +1016,7 @@
     </div>
     <div class="product-card" data-id="2">
       <div class="card-cap" onclick="openModal(2)">
-        <img src="images/chicken-pickle.png" alt="Chicken Pickle" onerror="handleImgError(this)" />
+        <img src="images/chicken-pickle.webp" alt="Chicken Pickle" onerror="handleImgError(this)" />
         <div class="cap-fallback">🍗</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1028,7 +1028,7 @@
     </div>
     <div class="product-card" data-id="3">
       <div class="card-cap" onclick="openModal(3)">
-        <img src="images/gongura-pickle.png" alt="Gongura Pickle" onerror="handleImgError(this)" />
+        <img src="images/gongura-pickle.webp" alt="Gongura Pickle" onerror="handleImgError(this)" />
         <div class="cap-fallback">🌿</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1040,7 +1040,7 @@
     </div>
     <div class="product-card" data-id="4">
       <div class="card-cap" onclick="openModal(4)">
-        <img src="images/mango-allam-pickle.png" alt="Mango Allam Pickle" onerror="handleImgError(this)" />
+        <img src="images/mango-allam-pickle.webp" alt="Mango Allam Pickle" onerror="handleImgError(this)" />
         <div class="cap-fallback">🥭</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1052,7 +1052,7 @@
     </div>
     <div class="product-card" data-id="5">
       <div class="card-cap" onclick="openModal(5)">
-        <img src="images/mango-avakaya-pickle.png" alt="Mango Avakaya Pickle" onerror="handleImgError(this)" />
+        <img src="images/mango-avakaya-pickle.webp" alt="Mango Avakaya Pickle" onerror="handleImgError(this)" />
         <div class="cap-fallback">🥭</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1064,7 +1064,7 @@
     </div>
     <div class="product-card" data-id="6">
       <div class="card-cap" onclick="openModal(6)">
-        <img src="images/mulakaya-pickle.png" alt="Mulakaya Pickle" onerror="handleImgError(this)" />
+        <img src="images/mulakaya-pickle.webp" alt="Mulakaya Pickle" onerror="handleImgError(this)" />
         <div class="cap-fallback">🌶</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1076,7 +1076,7 @@
     </div>
     <div class="product-card" data-id="7">
       <div class="card-cap" onclick="openModal(7)">
-        <img src="images/dosakaya-pickle.png" alt="Dosakaya Pickle" onerror="handleImgError(this)" />
+        <img src="images/dosakaya-pickle.webp" alt="Dosakaya Pickle" onerror="handleImgError(this)" />
         <div class="cap-fallback">🥒</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1088,7 +1088,7 @@
     </div>
     <div class="product-card" data-id="8">
       <div class="card-cap" onclick="openModal(8)">
-        <img src="images/tomato-pickle.png" alt="Tomato Pickle" onerror="handleImgError(this)" />
+        <img src="images/tomato-pickle.webp" alt="Tomato Pickle" onerror="handleImgError(this)" />
         <div class="cap-fallback">🍅</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1100,7 +1100,7 @@
     </div>
     <div class="product-card" data-id="9">
       <div class="card-cap" onclick="openModal(9)">
-        <img src="images/pandu-mirapakaya-pickle.png" alt="Pandu Mirapakaya Pickle" onerror="handleImgError(this)" />
+        <img src="images/pandu-mirapakaya-pickle.webp" alt="Pandu Mirapakaya Pickle" onerror="handleImgError(this)" />
         <div class="cap-fallback">🌶</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1126,7 +1126,7 @@
   <div class="product-row sweets">
     <div class="product-card" data-id="10">
       <div class="card-cap" onclick="openModal(10)">
-        <img src="images/arisalu.png" alt="Arisalu" onerror="handleImgError(this)" />
+        <img src="images/arisalu.webp" alt="Arisalu" onerror="handleImgError(this)" />
         <div class="cap-fallback">🟤</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1138,7 +1138,7 @@
     </div>
     <div class="product-card" data-id="11">
       <div class="card-cap" onclick="openModal(11)">
-        <img src="images/garijalu-bellam.png" alt="Garijalu Bellam" onerror="handleImgError(this)" />
+        <img src="images/garijalu-bellam.webp" alt="Garijalu Bellam" onerror="handleImgError(this)" />
         <div class="cap-fallback">🟫</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1150,7 +1150,7 @@
     </div>
     <div class="product-card" data-id="12">
       <div class="card-cap" onclick="openModal(12)">
-        <img src="images/garijalu-sugar.png" alt="Garijalu Sugar" onerror="handleImgError(this)" />
+        <img src="images/garijalu-sugar.webp" alt="Garijalu Sugar" onerror="handleImgError(this)" />
         <div class="cap-fallback">⚪</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1162,7 +1162,7 @@
     </div>
     <div class="product-card" data-id="13">
       <div class="card-cap" onclick="openModal(13)">
-        <img src="images/sunnundalu.png" alt="Sunnundalu" onerror="handleImgError(this)" />
+        <img src="images/sunnundalu.webp" alt="Sunnundalu" onerror="handleImgError(this)" />
         <div class="cap-fallback">🟡</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1174,7 +1174,7 @@
     </div>
     <div class="product-card" data-id="14">
       <div class="card-cap" onclick="openModal(14)">
-        <img src="images/groundnut-laddu.png" alt="Groundnut Laddu" onerror="handleImgError(this)" />
+        <img src="images/groundnut-laddu.webp" alt="Groundnut Laddu" onerror="handleImgError(this)" />
         <div class="cap-fallback">🥜</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1186,7 +1186,7 @@
     </div>
     <div class="product-card" data-id="15">
       <div class="card-cap" onclick="openModal(15)">
-        <img src="images/til-laddu.png" alt="Til Laddu" onerror="handleImgError(this)" />
+        <img src="images/til-laddu.webp" alt="Til Laddu" onerror="handleImgError(this)" />
         <div class="cap-fallback">⚫</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1198,7 +1198,7 @@
     </div>
     <div class="product-card" data-id="16">
       <div class="card-cap" onclick="openModal(16)">
-        <img src="images/rose-cookies.png" alt="Rose Cookies" onerror="handleImgError(this)" />
+        <img src="images/rose-cookies.webp" alt="Rose Cookies" onerror="handleImgError(this)" />
         <div class="cap-fallback">🌸</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1224,7 +1224,7 @@
   <div class="product-row mixtures">
     <div class="product-card" data-id="17">
       <div class="card-cap" onclick="openModal(17)">
-        <img src="images/poha-mixture.png" alt="Poha Mixture" onerror="handleImgError(this)" />
+        <img src="images/poha-mixture.webp" alt="Poha Mixture" onerror="handleImgError(this)" />
         <div class="cap-fallback">🍚</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1236,7 +1236,7 @@
     </div>
     <div class="product-card" data-id="18">
       <div class="card-cap" onclick="openModal(18)">
-        <img src="images/murukulu.png" alt="Murukulu" onerror="handleImgError(this)" />
+        <img src="images/murukulu.webp" alt="Murukulu" onerror="handleImgError(this)" />
         <div class="cap-fallback">🌀</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
@@ -1248,7 +1248,7 @@
     </div>
     <div class="product-card" data-id="19">
       <div class="card-cap" onclick="openModal(19)">
-        <img src="images/appalu.png" alt="Appalu" onerror="handleImgError(this)" />
+        <img src="images/appalu.webp" alt="Appalu" onerror="handleImgError(this)" />
         <div class="cap-fallback">🟠</div>
         <div class="view-hint">🔍 View Details</div>
       </div>
