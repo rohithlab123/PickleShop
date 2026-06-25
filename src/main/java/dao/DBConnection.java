@@ -5,15 +5,16 @@ import java.sql.DriverManager;
 
 public class DBConnection {
 
-    Connection con = null;
+    // 🔴 FIXED: Global "Connection con = null;" removed from here to stop the massive website lag.
 
     public Connection getconnection() {
+        Connection con = null; // 🟢 FIXED: The connection object is now local to this method call.
 
         try {
             // Load the MySQL JDBC Driver
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // Updated URL with SSL trust flags and your real password string
+            // Establish connection to Aiven Cloud MySQL
             con = DriverManager.getConnection(
                 "jdbc:mysql://pickelsshop-pickels.h.aivencloud.com:23064/defaultdb?useSSL=true&trustServerCertificate=true",
                 "avnadmin",
